@@ -1,4 +1,4 @@
-document.write("Let's Begin...!");
+document.write ("Let's Begin...!");
 window.alert("hey...it's a demo");
 
 function myFunction() {
