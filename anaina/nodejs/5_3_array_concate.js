@@ -1,12 +1,12 @@
-// used to merge two or more arrays
-const arr1 = ['a', 'b', 'c'];
-const arr2 = ['d', 'e', 'f'];
-const arr3 = arr1.concat(arr2);//here arr2 merge after arr1
+// // used to merge two or more arrays
+// const arr1 = ['a', 'b', 'c'];
+// const arr2 = ['d', 'e', 'f'];
+// const arr3 = arr1.concat(arr2);//here arr2 merge after arr1
 
-console.log(arr3);
+// console.log(arr3);
 
-arr4=['x','y','z'];
-console.log(arr1.concat(arr4));
+// arr4=['x','y','z'];
+// console.log(arr1.concat(arr4));
 
 
 //IMPORTANT:  
@@ -29,13 +29,13 @@ console.log(no1)
 console.log(nos);
 
 
-let a=[1,2]
-let a1=[4,5]
-a=a1
-console.log(a)
-a1=[5,6]
-console.log(a)
+// let a=[1,2]
+// let a1=[4,5]
+// a=a1
+// console.log(a)
+// a1=[5,6]
+// console.log(a)
 
-console.log([1, , 3].concat([4, 5])); // [1, empty, 3, 4, 5]
-console.log([1, 2].concat([3, , 5]))
+// console.log([1, , 3].concat([4, 5])); // [1, empty, 3, 4, 5]
+// console.log([1, 2].concat([3, , 5]))
 

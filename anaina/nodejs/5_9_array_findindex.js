@@ -17,3 +17,6 @@ const inventory = [
   }
   
   console.log(inventory.findIndex(checkQuanti));
+
+
+  console.log([1, , 3].findIndex((x) => x === undefined))

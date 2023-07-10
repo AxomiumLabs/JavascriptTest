@@ -1,0 +1,21 @@
+const numbers = [1, 4, 9];
+const roots = numbers.map((num) => Math.sqrt(num));
+console.log(roots)
+console.log("..............")
+console.log(numbers)
+
+console.log("..............")
+const number = [1, 4, 9];
+const doubles = number.map((num) => num * 2);
+
+console.log(doubles); 
+
+
+
+const sparseArr=[1, ,3,4]
+const addArr = sparseArr.map((num) => num * 2);
+
+console.log(addArr); 
+
+
+console.log(["1","2","3"].map((num)=>parseInt(num)))
