@@ -23,10 +23,6 @@
 
 // getArticle("1").then(res=>console.log(res))//.then() and .catch() to handle operations that gets completed or fails.
 
-
-
-
-// Creating a Promise
 // const myPromise = new Promise((resolve, reject) => {
 //     // Simulating an asynchronous operation
 //     setTimeout(() => {
@@ -54,27 +50,28 @@
 
     // ................................................................................................
 
-    const checkEvenNumber = (num) => {
-        return new Promise((resolve, reject) => {
-          if (num % 2 === 0) {
-            resolve(`${num} is an even number.`);
-          } else {
-            reject(`${num} is not an even number.`);
-          }
-        });
-      };
+    // const checkEvenNumber = (num) => {
+    //     return new Promise((resolve, reject) => {
+    //       if (num % 2 === 0) {
+    //         resolve(`${num} is an even number.`);
+    //       } else {
+    //         reject(`${num} is not an even number.`);
+    //       }
+    //     });
+    //   };
       
-      checkEvenNumber(4).then((result) => {
-          console.log(result);
-        }).catch((error) => {
-          console.log(error);
-        });
+    //   checkEvenNumber(4).then((result) => {
+    //       console.log(result);
+    //     }).catch((error) => {
+    //       console.log(error);
+    //     });
       
 
 
-      checkEvenNumber(7) .then((result) => {
-          console.log(result);
-        }).catch((error) => {
-          console.log(error);
-        });
-      
+    //   checkEvenNumber(7) .then((result) => {
+    //       console.log(result);
+    //     }).catch((error) => {
+    //       console.log(error);
+    //     });
+    //...............................................................................
+    

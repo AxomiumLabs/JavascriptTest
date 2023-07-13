@@ -1,4 +1,6 @@
-// removing the usage of .catch() and .then() which again depends on callbacks.
+// to handle asynchronous operations in a synchronous-like manner.
+// When await is used before a promise, it pauses the execution of the async function until the promise is resolved or rejected. 
+
 
 // const getData = async() => {
 //     let y =await "Hello World";//used to wait for the promise.
@@ -21,9 +23,10 @@ function asynchronous_operational_method() {
     return combined_promise;
     }
      
-    async function display() {
+async function display() {
     let data = await asynchronous_operational_method();
     console.log(data);
     }
      
     display();
+//.....................example 3................
