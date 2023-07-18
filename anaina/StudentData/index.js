@@ -1,23 +1,25 @@
 // console.log("student data....")
 require('dotenv').config()
 let express=require('express')
+var bodyParser = require('body-parser')
 let {connectDB}=require('./middlewareFunctions/databaseMiddleware')
 let studentModal=require('./schema/StudentModel')
 let teacherModal=require('./schema/teachers')
 let staffModal=require('./schema/staffModel')
 let mongoose=require("mongoose")
+const { strictEqual } = require('assert')
 
 
 
 const app=express()
-
+app.use(bodyParser.json())
 const mongodbURL = process.env.mongodbURL;
 connectDB(mongodbURL).then(() => {
   console.log("started...");
 });
-
+//..........SAVE........................
 app.get('/student-details', async function (req, res) {
-    let {firstname,lastname,age,languageMark,mathsMark,scienceMark,comment,date}=req.query
+    let {firstname,lastname,age,languageMark,mathsMark,scienceMark}=req.query
     
     const saveUser = new studentModal(
       {
@@ -57,55 +59,77 @@ app.get('/teacher-details', async function (req, res) {
       res.send(`Successfully updated`)
 })
 
+//...................create..........................
 
-// app.get('/staff-details', async function (req, res) {
+
+
+app.get('/staff-details',  function (req, res) {
   
+  let {firstname,email,phoneNumber}=req.query;
+  let myInput={
+    _id: new mongoose.Types.ObjectId(),
+    firstname ,
+    email,
+    phoneNumber,                
+}
+  staffModal.create(myInput);
+      res.send(`Successfully updated: ${JSON.stringify(myInput)}`)
+})
+
+// ...............insertMany......................
+app.post('/insert-many' ,function (req,res){
+  let myObjects=req.body;
+  console.log(myObjects)
+  staffModal.insertMany(myObjects)
+      res.send("insert many")
   
-//   staffModal.insertOne(
-//     {
-//         _id: new mongoose.Types.ObjectId(),
-//         firstname:"Rajeev" ,
-//         email:"rajeev@getMaxListeners.com",
-//         phoneNumber:7995568237,                
-//     });
-//       res.send(`Successfully updated`)
-// })
+})
+
+
+
 //...................................STUDENT DATA FETCHING..........................................................
 
-// app.get('/student-fetch', (req,res) => {
+
+app.get('/search', async (req,res) => {
+  let searchData = await studentModal.find({})
+  res.send(searchData)
+  });
+
+
+app.get('/student-fetch', (req,res) => {
  
-//   studentModal.find({}).then((student) => {
-//       res.send(student);
+  studentModal.find({}).then((student) => {
+      res.send(student);
 
 
-//   }); })
+  }); })
 ////////////////////////////////////////////////
 
-//   app.get('/student-fetch', (req,res) => {
+  // app.get('/student-fetch', (req,res) => {
  
-//     studentModal.find({firstname:"Anaina"}).then((student) => {
-//         res.send(student);
+  //   studentModal.find({firstname:"Anaina"}).then((student) => {
+  //       res.send(student);
   
   
-//     }); })
+  //   }); })
   
 //////////////////////////////////////////
-app.get('/student-fetch', (req,res) => {
-  let studentData=[]
+// app.get('/student-fetch', (req,res) => {
+//   let studentData=[]
  
-  studentModal.find({}).then((student)=> {
-          console.log("Database fetching:")
+//   studentModal.find({}).then((student)=> {
+//           console.log("Database fetching:")
       
-          student.map((d, k) => {
-            studentData.push(d._id,d.firstname,d.lastname);
-          })
-          res.send(studentData)
+//           student.map((d, k) => {
+//             studentData.push(d._id,d.firstname,d.lastname);
+//           })
+//           res.send(studentData)
          
-    })
-    .catch(error => {
-        console.log(error);
-    })
-  });
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     })
+//   });
 
 
 
